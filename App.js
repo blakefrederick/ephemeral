@@ -4,17 +4,18 @@ import { StyleSheet, Text, View } from 'react-native'
 import Nineteen84 from './components/Nineteen84'
 
 export default function App() {
-  const [showText, setShowText] = useState(true)
+  const [showBigText, setShowBigText] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
-      setShowText(false)
-    }, Math.random() * (45000 - 7000) + 7000)
+      setShowBigText(false)
+    }, Math.random() * (45000 - 6666) + 6666)
   }, [])
 
   return (
     <View style={styles.container}>
-      {showText && <Nineteen84 />}
+      {showBigText && <Nineteen84 />}
+      {!showBigText && <Text>There has never been any text here.</Text>}
       <StatusBar style="auto" />
     </View>
   );
