@@ -1,11 +1,20 @@
+import { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
 import Nineteen84 from './components/Nineteen84'
 
 export default function App() {
+  const [showText, setShowText] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowText(false)
+    }, Math.random() * (45000 - 7000) + 7000)
+  }, [])
+
   return (
     <View style={styles.container}>
-      <Nineteen84 />
+      {showText && <Nineteen84 />}
       <StatusBar style="auto" />
     </View>
   );
